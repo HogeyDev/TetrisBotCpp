@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-  Game *mainGame = new Game();
-  std::cout << mainGame->level << std::endl;
-  return 0;
+    Game* mainGame = new Game();
+    mainGame->tick();
+    return 0;
 }

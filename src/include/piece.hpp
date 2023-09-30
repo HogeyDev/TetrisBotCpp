@@ -22,7 +22,11 @@ class Piece {
 
     Piece(int pieceId);
 
-    char getName();
+    Piece* clone();
     std::string getPrintableWithWhitespace();
+    char getName();
     PieceMatrix getMatrix();
+    void rotate(int rotationDirection);
+    int getRotationStates();
+    int getColorScheme();
 };
