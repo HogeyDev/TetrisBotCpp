@@ -1,3 +1,5 @@
+#pragma once
+
 #include "board.hpp"
 #include "rng.hpp"
 
@@ -7,7 +9,6 @@ class Game {
     int score;
     int lines;
     int frames;
-    int startingTime;
     int totalPieces;
     int lastFrameTime;
     int seed;
@@ -18,31 +19,21 @@ class Game {
     Piece* previewPiece;
     RNG::LFSR32* internalRng;
 
-    Game(int startingLevel = 18);
+    Game(int startingLevel = 18, int seed = 0);
 
-    Game* clone() {
-        Game* copy = new Game();
-        copy->level = this->level;
-        copy->score = this->score;
-        copy->lines = this->lines;
-        copy->frames = this->frames;
-        copy->startingTime = this->startingTime;
-        copy->totalPieces = this->totalPieces;
-        copy->lastFrameTime = this->lastFrameTime;
-        copy->seed = this->seed;
-        copy->linesLastCleared = this->linesLastCleared;
-        copy->isOver = this->isOver;
-        copy->board = this->board->clone();
-        copy->activePiece = this->activePiece->clone();
-        copy->previewPiece = this->previewPiece->clone();
-        copy->internalRng = this->internalRng->clone();
-        return copy;
-    }
-    Piece* getNewPiece() {
-        this->totalPieces++;
-        this->activePiece = this->previewPiece->clone();
-        return (this->previewPiece =
-                    new Piece(this->internalRng->getRangedInt(0, 6)));
-    }
-    void tick();
+    void printBoard();
+    Game* clone();
+    Piece* getNewPiece();
+    Piece* generatePiece();
+    bool isGravityFrame();
+    void simulatePiece(Move move);
+    void tick(char movementCharacter = '.');
+    void tryPieceDrop();
+    void removeFilledLines();
+    void handleMovementCharacter(char movementCharacter);
+    bool tryXMovement(int xDirection);
+    bool tryRotation(int rotationDirection);
+    bool pieceCanDrop();
+    bool pieceCollidingWithBoard();
+    bool toppedOut();
 };

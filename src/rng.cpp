@@ -2,7 +2,6 @@
 #include <iostream>
 
 RNG::LFSR32::LFSR32(unsigned int state) {
-    std::cout << state << std::endl;
     this->registers = state;
     this->taps = {32, 22, 2, 1};
 }

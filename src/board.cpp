@@ -13,10 +13,20 @@ Board* Board::clone() {
 }
 
 int Board::setMinoXY(int value, int x, int y) {
+    if (y < 0 || y > 19)
+        return 0;
+    if (x < 0 || x > 9)
+        return 0;
     return (this->boardState.at(y * 10 + x) = value);
 }
 
-int Board::getMinoXY(int x, int y) { return this->boardState.at(y * 10 + x); }
+int Board::getMinoXY(int x, int y) {
+    if (y < 0 || y > 19)
+        return 0;
+    if (x < 0 || x > 9)
+        return 0;
+    return this->boardState.at(y * 10 + x);
+}
 
 int Board::getMino(int offset) { return this->boardState[offset]; }
 
@@ -38,5 +48,11 @@ void Board::addPieceToBoard(Piece* piece) {
                 this->setMinoXY(pieceMatrix[y][x], piece->x + x, piece->y + y);
             }
         }
+    }
+}
+
+void Board::removeRow(int row) {
+    for (int x = 0; x < 10; x++) {
+        this->boardState.erase(this->boardState.begin() + (10 * row + x));
     }
 }
