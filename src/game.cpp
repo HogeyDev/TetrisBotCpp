@@ -19,6 +19,11 @@ Game::Game(int startingLevel, int seed) {
     this->linesLastCleared = 0;
 }
 
+void Game::printPiecePreview() {
+    std::string pieceMatrix = this->previewPiece->getPrintableWithWhitespace();
+    std::cout << pieceMatrix << std::endl;
+}
+
 void Game::printBoard() {
     PieceMatrix pieceMatrix = this->activePiece->getMatrix();
 
@@ -46,6 +51,14 @@ void Game::printBoard() {
     }
     output += "+--------------------+";
     std::cout << output << std::endl;
+
+    std::cout << "Level: " << this->level << std::endl;
+    std::cout << "Frames: " << this->frames << std::endl;
+    std::cout << "Total Pieces: " << this->totalPieces << std::endl;
+    std::cout << "Lines: " << this->lines << std::endl;
+    std::cout << "Lines Last Cleared: " << this->linesLastCleared << std::endl;
+    std::cout << "Seed: " << this->seed << std::endl;
+    std::cout << "Score: " << this->score << std::endl;
 }
 
 Game* Game::clone() {
@@ -90,6 +103,8 @@ void Game::simulatePiece(Move move) {
     }
     int oldPieceCount = this->totalPieces;
     while (oldPieceCount == this->totalPieces) {
+        if (this->isOver)
+            break;
         this->tick('.');
     }
 }

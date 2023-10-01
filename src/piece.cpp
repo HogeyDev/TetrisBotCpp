@@ -62,6 +62,8 @@ std::string Piece::getPrintableWithWhitespace() {
         if (y < pieceMatrix.size() - 1)
             ret += '\n';
     }
+    if (pieceMatrix.size() == 3)
+        ret += "\n";
     return ret;
 }
 

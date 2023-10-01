@@ -21,6 +21,7 @@ class Game {
 
     Game(int startingLevel = 18, int seed = 0);
 
+    void printPiecePreview();
     void printBoard();
     Game* clone();
     Piece* getNewPiece();

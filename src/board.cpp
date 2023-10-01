@@ -55,4 +55,7 @@ void Board::removeRow(int row) {
     for (int x = 0; x < 10; x++) {
         this->boardState.erase(this->boardState.begin() + (10 * row + x));
     }
+    for (int x = 0; x < 10; x++) {
+        this->boardState.insert(this->boardState.begin(), 0);
+    }
 }
