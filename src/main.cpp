@@ -27,6 +27,7 @@ int main() {
         system("clear");
         game->printBoard();
         std::cout << game->isOver << std::endl;
+        std::cout << inputTimeline << std::endl;
 
         if (game->isOver) {
             exit(0);

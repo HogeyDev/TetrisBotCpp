@@ -20,8 +20,12 @@ Move getBestMove(Game* currentGame, int searchDepth) {
             moveList.push_back(move);
         }
     }
-    // moveList = sortMoveListByEvaluation(moveList);
+    moveList = sortMoveListByEvaluation(moveList);
     return moveList[0];
+}
+
+std::vector<Move> sortMoveListByEvaluation(std::vector<Move> moveList) {
+    return moveList;
 }
 
 int evaluateGame(Game* game) { return 0; }
@@ -92,6 +96,7 @@ std::string generateInputTimeline(std::string frameTimeline, Move move) {
                 rotationsRemaining--;
         }
         outputString += character;
+        i++;
     }
     return outputString;
 }
