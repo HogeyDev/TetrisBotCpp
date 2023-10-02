@@ -1,5 +1,5 @@
 CC := g++
-CCARGS := -Wall -Werror -Wpedantic -O4
+CCARGS := -Wall -Werror -Wpedantic -O3
 
 .PHONY: clean
 all: clean compile run
