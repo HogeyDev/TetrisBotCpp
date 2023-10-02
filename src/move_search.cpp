@@ -313,3 +313,5 @@ searchForTucksAndSpins(Game *game, std::vector<Move> baseMoveList) {
   // complete.insert(complete.end(), spinTucks.begin(), spinTucks.end());
   return tucks;
 }
+
+bool addToSearchedStates(std::vector<std::string> searchedStates, );
