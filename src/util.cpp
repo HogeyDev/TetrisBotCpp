@@ -51,7 +51,7 @@ int getMaximumNTap(int numberOfTaps, int level) {
         for (int i = 0; i < maxHeight; i++) {
             testGame->board->setMinoXY(1, 1, 19 - i);
         }
-        testGame->simulatePiece({-numberOfTaps, 1});
+        testGame->simulatePiece(Move{-numberOfTaps, 1});
         if (!testGame->board->getMinoXY(0, 19)) {
             maxHeightFound = true;
             break;

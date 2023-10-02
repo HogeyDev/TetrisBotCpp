@@ -7,20 +7,37 @@
 #include <cstdint>
 #include <cstdlib>
 #include <string>
+#include <vector>
 
-Move getBestMove(Game* currentGame) { return getBestMove(currentGame, 2); }
-Move getBestMove(Game* currentGame, int searchDepth) {
+std::string getBestMove(Game* currentGame) {
+    return getBestMove(currentGame, 2);
+}
+std::string getBestMove(Game* currentGame, int searchDepth) {
+    std::vector<std::string> timelineList = {};
     std::vector<Move> moveList = {};
     std::vector<int> evaluationList = {};
-    for (int xOffset = -5; xOffset <= 4; xOffset++) {
-        for (int rotationState = -1; rotationState <= 2; rotationState++) {
+
+    char pieceName = currentGame->activePiece->getName();
+    int rotationStart = pieceName == 'O' ? 0 : -1;
+    int rotationEnd = pieceName == 'O' || pieceName == 'I' ||
+                              pieceName == 'S' || pieceName == 'Z'
+                          ? 0
+                          : 2;
+
+    int xStart = pieceName == 'O' ? -4 : -5;
+    int xEnd = 4;
+
+    for (int xOffset = xStart; xOffset <= xEnd; xOffset++) {
+        for (int rotationState = rotationStart; rotationState <= rotationEnd;
+             rotationState++) {
             Game* gameCopy = currentGame->clone();
             Move move = {xOffset, rotationState};
 
             gameCopy->simulatePiece(move);
 
             if (searchDepth > 1) {
-                Move bestSecondaryMove = getBestMove(gameCopy, searchDepth - 1);
+                std::string bestSecondaryMove =
+                    getBestMove(gameCopy, searchDepth - 1);
                 gameCopy->simulatePiece(bestSecondaryMove);
             }
 
@@ -28,6 +45,8 @@ Move getBestMove(Game* currentGame, int searchDepth) {
             int insertionIndex =
                 findEvaluationListIndex(evaluationList, currentEvaluation);
 
+            timelineList.insert(timelineList.begin() + insertionIndex,
+                                generateInputTimeline(tapTimeline, move));
             moveList.insert(moveList.begin() + insertionIndex, move);
             evaluationList.insert(evaluationList.begin() + insertionIndex,
                                   currentEvaluation);
@@ -35,13 +54,31 @@ Move getBestMove(Game* currentGame, int searchDepth) {
             // moveList.push_back(move);
         }
     }
-    // moveList = sortMoveListByEvaluation(moveList);
-    // for (unsigned int i = 0; i < evaluationList.size(); i++) {
-    //     std::cout << evaluationList[i] << std::endl;
-    // }
-    // std::cout << std::endl;
-    // exit(0);
-    return moveList[0];
+
+    std::vector<std::string> extras =
+        searchForTucksAndSpins(currentGame, moveList);
+
+    for (std::string extra : extras) {
+        Game* gameCopy = currentGame->clone();
+
+        gameCopy->simulatePiece(extra);
+
+        if (searchDepth > 1) {
+            std::string bestSecondaryMove =
+                getBestMove(gameCopy, searchDepth - 1);
+            gameCopy->simulatePiece(bestSecondaryMove);
+        }
+
+        int currentEvaluation = evaluateGame(gameCopy);
+        int insertionIndex =
+            findEvaluationListIndex(evaluationList, currentEvaluation);
+
+        timelineList.insert(timelineList.begin() + insertionIndex, extra);
+        evaluationList.insert(evaluationList.begin() + insertionIndex,
+                              currentEvaluation);
+    }
+
+    return timelineList[0];
 }
 
 int findEvaluationListIndex(std::vector<int> evaluations,
@@ -228,4 +265,53 @@ std::string generateInputTimeline(std::string frameTimeline, Move move) {
         i++;
     }
     return outputString;
+}
+
+std::vector<std::string>
+searchForTucksAndSpins(Game* game, std::vector<Move> baseMoveList) {
+    std::vector<std::string> tucks;
+    std::vector<std::string> spins;
+    std::vector<std::string> spinTucks;
+    for (unsigned int i = 0; i < baseMoveList.size(); i++) {
+        Game* gameCopy = game->clone();
+        std::string inputTimeline =
+            generateInputTimeline(tapTimeline, baseMoveList[i]);
+
+        for (unsigned int i = 0; i < inputTimeline.size(); i++) {
+            gameCopy->tick(inputTimeline[i]);
+        }
+
+        std::vector<std::string> tuckInputs = {"", "LR", "LR", "", "LR"};
+        std::vector<std::string> spinInputs = {"", "", "A", "", "AB"};
+        std::vector<std::string> spinTucksInputs = {"", "", "EI", "", "EFIG"};
+
+        int numOrientations = gameCopy->activePiece->getRotationStates();
+
+        int oldPieceTotal = gameCopy->totalPieces;
+        int oldY = gameCopy->activePiece->y;
+
+        while (oldPieceTotal == gameCopy->totalPieces) {
+            // only check for spins if inputting and piece has dropped
+            if (oldY != gameCopy->activePiece->y &&
+                tapTimeline[gameCopy->activePiece->frames] == 'X') {
+                oldY = gameCopy->activePiece->y;
+
+                std::string possibleInputs = tuckInputs[numOrientations];
+
+                for (unsigned int input = 0; input < possibleInputs.size();
+                     input++) {
+                    Game* gameCopyCopy = gameCopy->clone();
+                    if (gameCopyCopy->tryXMovement(possibleInputs[input]))
+                        tucks.push_back(inputTimeline + possibleInputs[input]);
+                }
+            }
+            inputTimeline += '.';
+        }
+    }
+
+    std::vector<std::string> complete;
+    complete.insert(complete.begin(), tucks.begin(), tucks.end());
+    complete.insert(complete.begin(), spins.begin(), spins.end());
+    complete.insert(complete.begin(), spinTucks.begin(), spinTucks.end());
+    return complete;
 }

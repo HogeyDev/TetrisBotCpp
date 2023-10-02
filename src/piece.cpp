@@ -224,7 +224,7 @@ void Piece::rotate(int rotationDirection) {
 }
 
 int Piece::getRotationStates() {
-    static const int values[] = {4, 4, 1, 3, 2, 4, 2};
+    static const int values[] = {4, 4, 1, 2, 2, 4, 2};
     return values[this->pieceId];
 }
 

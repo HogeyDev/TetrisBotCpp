@@ -98,6 +98,10 @@ bool Game::isGravityFrame() {
 
 void Game::simulatePiece(Move move) {
     std::string inputTimeline = generateInputTimeline("X.", move);
+    this->simulatePiece(inputTimeline);
+}
+
+void Game::simulatePiece(std::string inputTimeline) {
     for (unsigned int i = 0; i < inputTimeline.size(); i++) {
         this->tick(inputTimeline.at(i));
     }

@@ -28,6 +28,7 @@ class Game {
     Piece* generatePiece();
     bool isGravityFrame();
     void simulatePiece(Move move);
+    void simulatePiece(std::string inputTimeline);
     void tick(char movementCharacter = '.');
     void tryPieceDrop();
     void removeFilledLines();

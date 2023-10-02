@@ -11,7 +11,7 @@
 static const float frameMillis = (float)1000 / FRAMERATE;
 
 int main() {
-    Game* game = new Game(29);
+    Game* game = new Game(18);
     int oldPieceTotal = -1;
 
     std::string inputTimeline = "";
@@ -19,7 +19,7 @@ int main() {
 
     while (true) {
         if (oldPieceTotal != game->totalPieces) {
-            inputTimeline = generateInputTimeline("X.", getBestMove(game, 3));
+            inputTimeline = getBestMove(game, 3);
             i = 0;
             oldPieceTotal = game->totalPieces;
         }

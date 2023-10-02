@@ -1,5 +1,5 @@
 CC := g++
-CCARGS := -Wall -Werror -Wpedantic -g
+CCARGS := -Wall -Werror -Wpedantic -O4
 
 .PHONY: clean
 all: clean compile run
@@ -17,5 +17,6 @@ clean:
 	rm -rf build
 	mkdir build
 
-debug: compile
+debug:
+	$(CC) src/*.cpp -o build/main -I./src/include $(CCARGS) -g
 	gdb --args ./build/main
