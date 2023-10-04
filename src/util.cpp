@@ -37,7 +37,7 @@ int lastScareHeightLevel = -INT32_MAX;
 int getScareHeight(int level) {
     if (lastScareHeightLevel == level)
         return lastScareHeightHeight;
-    lastScareHeightHeight = std::floor(0.75 * getMaximumNTap(-5, level));
+    lastScareHeightHeight = std::floor(0.25 * getMaximumNTap(5, level));
     lastScareHeightLevel = level;
     return lastScareHeightHeight;
 }
