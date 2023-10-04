@@ -1,0 +1,529 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 23.94      0.17     0.17 71031506     0.00     0.00  Board::getMinoXY(int, int)
+ 16.90      0.29     0.12  1950831     0.00     0.00  Game::pieceCollidingWithBoard()
+ 16.90      0.41     0.12       42     2.86    16.42  getBestMove[abi:cxx11](Game*, int)
+  8.45      0.47     0.06    45183     0.00     0.00  evaluateGame(Game*)
+  7.04      0.52     0.05  2703131     0.00     0.00  Piece::getColorScheme()
+  4.23      0.55     0.03   834575     0.00     0.00  Game::removeFilledLines()
+  4.23      0.58     0.03   104300     0.00     0.00  Board::clone()
+  2.82      0.60     0.02   224674     0.00     0.00  void std::vector<int, std::allocator<int> >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&)
+  2.82      0.62     0.02    45183     0.00     0.00  findEvaluationListIndex(std::vector<int, std::allocator<int> >, int)
+  2.82      0.64     0.02                             _init
+  1.41      0.65     0.01  2008091     0.00     0.00  Piece::getMatrix()
+  1.41      0.66     0.01   836718     0.00     0.00  Game::tick(char)
+  1.41      0.67     0.01   835751     0.00     0.00  getFramesUntilPieceDrop(int)
+  1.41      0.68     0.01   834575     0.00     0.00  Game::isGravityFrame()
+  1.41      0.69     0.01   529474     0.00     0.00  Piece::Piece(int)
+  1.41      0.70     0.01   208613     0.00     0.00  Board::Board()
+  1.41      0.71     0.01    45225     0.00     0.00  getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&)
+  0.00      0.71     0.00   835236     0.00     0.00  Game::toppedOut()
+  0.00      0.71     0.00   834575     0.00     0.00  Game::tryPieceDrop()
+  0.00      0.71     0.00   529516     0.00     0.00  Piece::getName()
+  0.00      0.71     0.00   449300     0.00     0.00  getScareHeight(int)
+  0.00      0.71     0.00   264744     0.00     0.00  RNG::LFSR32::getRangedInt(int, int)
+  0.00      0.71     0.00   264744     0.00     0.00  RNG::LFSR32::nextState()
+  0.00      0.71     0.00   264718     0.00     0.00  Piece::clone()
+  0.00      0.71     0.00   237924     0.00     0.00  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+  0.00      0.71     0.00   225545     0.00     0.00  void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)
+  0.00      0.71     0.00   224538     0.00     0.00  Board::setMinoXY(int, int, int)
+  0.00      0.71     0.00   208626     0.00     0.00  Game::generatePiece()
+  0.00      0.71     0.00   208613     0.00     0.00  RNG::LFSR32::LFSR32(unsigned int)
+  0.00      0.71     0.00   208613     0.00     0.00  std::vector<int, std::allocator<int> >::_M_default_append(unsigned long)
+  0.00      0.71     0.00   201891     0.00     0.00  Game::handleMovementCharacter(char)
+  0.00      0.71     0.00   169620     0.00     0.00  Game::tryXMovement(int)
+  0.00      0.71     0.00   117736     0.00     0.00  Piece::getRotationStates()
+  0.00      0.71     0.00   116560     0.00     0.00  Piece::rotate(int)
+  0.00      0.71     0.00   111400     0.00     0.00  Game::tryRotation(int)
+  0.00      0.71     0.00   104313     0.00     0.00  Game::Game(int, int)
+  0.00      0.71     0.00   104300     0.00     0.00  RNG::LFSR32::clone()
+  0.00      0.71     0.00   104300     0.00     0.00  Game::clone()
+  0.00      0.71     0.00    56118     0.00     0.00  Game::getNewPiece()
+  0.00      0.71     0.00    56118     0.00     0.00  Board::addPieceToBoard(Piece*)
+  0.00      0.71     0.00    45195     0.00     0.01  Game::simulatePiece(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.71     0.00    44930     0.00     0.00  isTetrisReady(Game*)
+  0.00      0.71     0.00    44007     0.00     0.00  isNewState(std::vector<Game*, std::allocator<Game*> >, Game*)
+  0.00      0.71     0.00     7080     0.00     0.00  sign(int)
+  0.00      0.71     0.00     3540     0.00     0.00  generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >)
+  0.00      0.71     0.00      680     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+  0.00      0.71     0.00      680     0.00     0.00  void std::vector<Game*, std::allocator<Game*> >::_M_realloc_insert<Game* const&>(__gnu_cxx::__normal_iterator<Game**, std::vector<Game*, std::allocator<Game*> > >, Game* const&)
+  0.00      0.71     0.00      571     0.00     0.00  Game::printBoard()
+  0.00      0.71     0.00      571     0.00     0.00  Game::printPiecePreview()
+  0.00      0.71     0.00      571     0.00     0.00  Piece::getPrintableWithWhitespace[abi:cxx11]()
+  0.00      0.71     0.00      460     0.00     0.00  Board::removeRow(int)
+  0.00      0.71     0.00      435     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.71     0.00      267     0.00     0.00  void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> >&&)
+  0.00      0.71     0.00       42     0.00     1.55  searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >)
+  0.00      0.71     0.00       12     0.00     0.01  Game::simulatePiece(std::vector<int, std::allocator<int> >)
+  0.00      0.71     0.00        1     0.00     0.08  getMaximumNTap(int, int)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 1.41% of 0.71 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     97.2    0.00    0.69                 main [1]
+                0.12    0.57      42/42          getBestMove[abi:cxx11](Game*, int) [2]
+                0.00    0.00     571/571         Game::printBoard() [32]
+                0.00    0.00     571/836718      Game::tick(char) [3]
+                0.00    0.00     571/571         Game::printPiecePreview() [36]
+                0.00    0.00       1/104313      Game::Game(int, int) [26]
+                0.00    0.00       2/237924      std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+-----------------------------------------------
+                0.12    0.57      42/42          main [1]
+[2]     97.1    0.12    0.57      42         getBestMove[abi:cxx11](Game*, int) [2]
+                0.00    0.28   45183/45195       Game::simulatePiece(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
+                0.06    0.12   45183/45183       evaluateGame(Game*) [6]
+                0.00    0.07      42/42          searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.00    0.02   45183/104300      Game::clone() [13]
+                0.02    0.00   45183/45183       findEvaluationListIndex(std::vector<int, std::allocator<int> >, int) [16]
+                0.00    0.00    1218/45225       getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00  136332/237924      std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+                0.00    0.00    1176/3540        generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+                0.00    0.00     435/225545      void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [49]
+                0.00    0.00     435/435         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [62]
+                0.00    0.00     267/680         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&) [59]
+-----------------------------------------------
+                0.00    0.00     571/836718      main [1]
+                0.00    0.00    4992/836718      getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.03   71149/836718      searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.01    0.27  760006/836718      Game::simulatePiece(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
+[3]     43.7    0.01    0.30  836718         Game::tick(char) [3]
+                0.00    0.09  834575/834575      Game::tryPieceDrop() [8]
+                0.05    0.03  835236/1950831     Game::pieceCollidingWithBoard() [5]
+                0.03    0.05  834575/834575      Game::removeFilledLines() [9]
+                0.01    0.01  834575/834575      Game::isGravityFrame() [18]
+                0.00    0.02  201891/201891      Game::handleMovementCharacter(char) [20]
+                0.00    0.01   90491/169620      Game::tryXMovement(int) [19]
+                0.00    0.00   32271/111400      Game::tryRotation(int) [22]
+                0.00    0.00   56118/56118       Game::getNewPiece() [30]
+                0.00    0.00  835236/835236      Game::toppedOut() [44]
+-----------------------------------------------
+                0.00    0.00      12/45195       Game::simulatePiece(std::vector<int, std::allocator<int> >) [35]
+                0.00    0.28   45183/45195       getBestMove[abi:cxx11](Game*, int) [2]
+[4]     39.7    0.00    0.28   45195         Game::simulatePiece(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
+                0.01    0.27  760006/836718      Game::tick(char) [3]
+-----------------------------------------------
+                0.01    0.00  111400/1950831     Game::tryRotation(int) [22]
+                0.01    0.01  169620/1950831     Game::tryXMovement(int) [19]
+                0.05    0.03  834575/1950831     Game::tryPieceDrop() [8]
+                0.05    0.03  835236/1950831     Game::tick(char) [3]
+[5]     27.7    0.12    0.08 1950831         Game::pieceCollidingWithBoard() [5]
+                0.01    0.05 1950831/2008091     Piece::getMatrix() [11]
+                0.02    0.00 7692195/71031506     Board::getMinoXY(int, int) [7]
+-----------------------------------------------
+                0.06    0.12   45183/45183       getBestMove[abi:cxx11](Game*, int) [2]
+[6]     25.5    0.06    0.12   45183         evaluateGame(Game*) [6]
+                0.10    0.00 41350308/71031506     Board::getMinoXY(int, int) [7]
+                0.02    0.00  224650/224674      void std::vector<int, std::allocator<int> >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&) [15]
+                0.00    0.00   44930/44930       isTetrisReady(Game*) [29]
+                0.00    0.00  449300/449300      getScareHeight(int) [33]
+                0.00    0.00  224650/225545      void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [49]
+-----------------------------------------------
+                0.00    0.00      12/71031506     getMaximumNTap(int, int) [34]
+                0.00    0.00  114200/71031506     Game::printBoard() [32]
+                0.00    0.00  942906/71031506     isTetrisReady(Game*) [29]
+                0.02    0.00 7692195/71031506     Game::pieceCollidingWithBoard() [5]
+                0.05    0.00 20931885/71031506     Game::removeFilledLines() [9]
+                0.10    0.00 41350308/71031506     evaluateGame(Game*) [6]
+[7]     23.9    0.17    0.00 71031506         Board::getMinoXY(int, int) [7]
+-----------------------------------------------
+                0.00    0.09  834575/834575      Game::tick(char) [3]
+[8]     12.1    0.00    0.09  834575         Game::tryPieceDrop() [8]
+                0.05    0.03  834575/1950831     Game::pieceCollidingWithBoard() [5]
+                0.00    0.00   56118/56118       Board::addPieceToBoard(Piece*) [31]
+-----------------------------------------------
+                0.03    0.05  834575/834575      Game::tick(char) [3]
+[9]     11.3    0.03    0.05  834575         Game::removeFilledLines() [9]
+                0.05    0.00 20931885/71031506     Board::getMinoXY(int, int) [7]
+                0.00    0.00     460/460         Board::removeRow(int) [61]
+                0.00    0.00     460/225545      void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [49]
+-----------------------------------------------
+                0.00    0.07      42/42          getBestMove[abi:cxx11](Game*, int) [2]
+[10]     9.2    0.00    0.07      42         searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.00    0.03   57941/104300      Game::clone() [13]
+                0.00    0.03   71149/836718      Game::tick(char) [3]
+                0.01    0.00   44007/45225       getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00    1176/835751      getFramesUntilPieceDrop(int) [25]
+                0.00    0.00   96439/237924      std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+                0.00    0.00   44007/44007       isNewState(std::vector<Game*, std::allocator<Game*> >, Game*) [56]
+                0.00    0.00    1176/3540        generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+                0.00    0.00    1176/117736      Piece::getRotationStates() [53]
+                0.00    0.00     413/680         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&) [59]
+                0.00    0.00     413/680         void std::vector<Game*, std::allocator<Game*> >::_M_realloc_insert<Game* const&>(__gnu_cxx::__normal_iterator<Game**, std::vector<Game*, std::allocator<Game*> > >, Game* const&) [60]
+-----------------------------------------------
+                0.00    0.00     571/2008091     Game::printBoard() [32]
+                0.00    0.00     571/2008091     Piece::getPrintableWithWhitespace[abi:cxx11]() [37]
+                0.00    0.00   56118/2008091     Board::addPieceToBoard(Piece*) [31]
+                0.01    0.05 1950831/2008091     Game::pieceCollidingWithBoard() [5]
+[11]     8.5    0.01    0.05 2008091         Piece::getMatrix() [11]
+                0.05    0.00 2703131/2703131     Piece::getColorScheme() [12]
+-----------------------------------------------
+                0.05    0.00 2703131/2703131     Piece::getMatrix() [11]
+[12]     7.0    0.05    0.00 2703131         Piece::getColorScheme() [12]
+-----------------------------------------------
+                0.00    0.00    1176/104300      getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.02   45183/104300      getBestMove[abi:cxx11](Game*, int) [2]
+                0.00    0.03   57941/104300      searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+[13]     6.7    0.00    0.05  104300         Game::clone() [13]
+                0.03    0.00  104300/104300      Board::clone() [14]
+                0.00    0.01  104300/104313      Game::Game(int, int) [26]
+                0.00    0.00  208600/264718      Piece::clone() [27]
+                0.00    0.00  104300/104300      RNG::LFSR32::clone() [55]
+-----------------------------------------------
+                0.03    0.00  104300/104300      Game::clone() [13]
+[14]     4.9    0.03    0.00  104300         Board::clone() [14]
+                0.00    0.00  104300/208613      Board::Board() [24]
+-----------------------------------------------
+                0.00    0.00      24/224674      Game::simulatePiece(std::vector<int, std::allocator<int> >) [35]
+                0.02    0.00  224650/224674      evaluateGame(Game*) [6]
+[15]     2.8    0.02    0.00  224674         void std::vector<int, std::allocator<int> >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&) [15]
+-----------------------------------------------
+                0.02    0.00   45183/45183       getBestMove[abi:cxx11](Game*, int) [2]
+[16]     2.8    0.02    0.00   45183         findEvaluationListIndex(std::vector<int, std::allocator<int> >, int) [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[17]     2.8    0.02    0.00                 _init [17]
+-----------------------------------------------
+                0.01    0.01  834575/834575      Game::tick(char) [3]
+[18]     2.8    0.01    0.01  834575         Game::isGravityFrame() [18]
+                0.01    0.00  834575/835751      getFramesUntilPieceDrop(int) [25]
+-----------------------------------------------
+                0.00    0.01   79129/169620      Game::handleMovementCharacter(char) [20]
+                0.00    0.01   90491/169620      Game::tick(char) [3]
+[19]     2.4    0.00    0.02  169620         Game::tryXMovement(int) [19]
+                0.01    0.01  169620/1950831     Game::pieceCollidingWithBoard() [5]
+-----------------------------------------------
+                0.00    0.02  201891/201891      Game::tick(char) [3]
+[20]     2.2    0.00    0.02  201891         Game::handleMovementCharacter(char) [20]
+                0.00    0.01   79129/111400      Game::tryRotation(int) [22]
+                0.00    0.01   79129/169620      Game::tryXMovement(int) [19]
+-----------------------------------------------
+                0.00    0.00    1218/45225       getBestMove[abi:cxx11](Game*, int) [2]
+                0.01    0.00   44007/45225       searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+[21]     1.7    0.01    0.00   45225         getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00    4992/836718      Game::tick(char) [3]
+                0.00    0.00    1176/104300      Game::clone() [13]
+                0.00    0.00    1176/237924      std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+                0.00    0.00    1176/3540        generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+                0.00    0.00     267/267         void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> >&&) [63]
+                0.00    0.00     267/680         void std::vector<Game*, std::allocator<Game*> >::_M_realloc_insert<Game* const&>(__gnu_cxx::__normal_iterator<Game**, std::vector<Game*, std::allocator<Game*> > >, Game* const&) [60]
+                0.00    0.00      42/529516      Piece::getName() [45]
+-----------------------------------------------
+                0.00    0.00   32271/111400      Game::tick(char) [3]
+                0.00    0.01   79129/111400      Game::handleMovementCharacter(char) [20]
+[22]     1.6    0.00    0.01  111400         Game::tryRotation(int) [22]
+                0.01    0.00  111400/1950831     Game::pieceCollidingWithBoard() [5]
+                0.00    0.00  116560/116560      Piece::rotate(int) [54]
+-----------------------------------------------
+                0.00    0.00      12/529474      getMaximumNTap(int, int) [34]
+                0.00    0.00   56118/529474      Game::getNewPiece() [30]
+                0.00    0.00  208626/529474      Game::generatePiece() [28]
+                0.00    0.00  264718/529474      Piece::clone() [27]
+[23]     1.4    0.01    0.00  529474         Piece::Piece(int) [23]
+                0.00    0.00  529474/529516      Piece::getName() [45]
+-----------------------------------------------
+                0.00    0.00  104300/208613      Board::clone() [14]
+                0.01    0.00  104313/208613      Game::Game(int, int) [26]
+[24]     1.4    0.01    0.00  208613         Board::Board() [24]
+                0.00    0.00  208613/208613      std::vector<int, std::allocator<int> >::_M_default_append(unsigned long) [52]
+-----------------------------------------------
+                0.00    0.00    1176/835751      searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.01    0.00  834575/835751      Game::isGravityFrame() [18]
+[25]     1.4    0.01    0.00  835751         getFramesUntilPieceDrop(int) [25]
+-----------------------------------------------
+                0.00    0.00       1/104313      main [1]
+                0.00    0.00      12/104313      getMaximumNTap(int, int) [34]
+                0.00    0.01  104300/104313      Game::clone() [13]
+[26]     1.3    0.00    0.01  104313         Game::Game(int, int) [26]
+                0.01    0.00  104313/208613      Board::Board() [24]
+                0.00    0.00  208626/208626      Game::generatePiece() [28]
+                0.00    0.00  104313/208613      RNG::LFSR32::LFSR32(unsigned int) [51]
+-----------------------------------------------
+                0.00    0.00   56118/264718      Game::getNewPiece() [30]
+                0.00    0.00  208600/264718      Game::clone() [13]
+[27]     0.7    0.00    0.00  264718         Piece::clone() [27]
+                0.00    0.00  264718/529474      Piece::Piece(int) [23]
+-----------------------------------------------
+                0.00    0.00  208626/208626      Game::Game(int, int) [26]
+[28]     0.6    0.00    0.00  208626         Game::generatePiece() [28]
+                0.00    0.00  208626/529474      Piece::Piece(int) [23]
+                0.00    0.00  208626/264744      RNG::LFSR32::getRangedInt(int, int) [46]
+-----------------------------------------------
+                0.00    0.00   44930/44930       evaluateGame(Game*) [6]
+[29]     0.3    0.00    0.00   44930         isTetrisReady(Game*) [29]
+                0.00    0.00  942906/71031506     Board::getMinoXY(int, int) [7]
+-----------------------------------------------
+                0.00    0.00   56118/56118       Game::tick(char) [3]
+[30]     0.3    0.00    0.00   56118         Game::getNewPiece() [30]
+                0.00    0.00   56118/264718      Piece::clone() [27]
+                0.00    0.00   56118/529474      Piece::Piece(int) [23]
+                0.00    0.00   56118/264744      RNG::LFSR32::getRangedInt(int, int) [46]
+-----------------------------------------------
+                0.00    0.00   56118/56118       Game::tryPieceDrop() [8]
+[31]     0.2    0.00    0.00   56118         Board::addPieceToBoard(Piece*) [31]
+                0.00    0.00   56118/2008091     Piece::getMatrix() [11]
+                0.00    0.00  224472/224538      Board::setMinoXY(int, int, int) [50]
+-----------------------------------------------
+                0.00    0.00     571/571         main [1]
+[32]     0.0    0.00    0.00     571         Game::printBoard() [32]
+                0.00    0.00  114200/71031506     Board::getMinoXY(int, int) [7]
+                0.00    0.00     571/2008091     Piece::getMatrix() [11]
+-----------------------------------------------
+                0.00    0.00  449300/449300      evaluateGame(Game*) [6]
+[33]     0.0    0.00    0.00  449300         getScareHeight(int) [33]
+                0.00    0.00       1/1           getMaximumNTap(int, int) [34]
+-----------------------------------------------
+                0.00    0.00       1/1           getScareHeight(int) [33]
+[34]     0.0    0.00    0.00       1         getMaximumNTap(int, int) [34]
+                0.00    0.00      12/12          Game::simulatePiece(std::vector<int, std::allocator<int> >) [35]
+                0.00    0.00      12/104313      Game::Game(int, int) [26]
+                0.00    0.00      12/529474      Piece::Piece(int) [23]
+                0.00    0.00      12/71031506     Board::getMinoXY(int, int) [7]
+                0.00    0.00      66/224538      Board::setMinoXY(int, int, int) [50]
+-----------------------------------------------
+                0.00    0.00      12/12          getMaximumNTap(int, int) [34]
+[35]     0.0    0.00    0.00      12         Game::simulatePiece(std::vector<int, std::allocator<int> >) [35]
+                0.00    0.00      12/45195       Game::simulatePiece(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
+                0.00    0.00      24/224674      void std::vector<int, std::allocator<int> >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&) [15]
+                0.00    0.00      12/3540        generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+-----------------------------------------------
+                0.00    0.00     571/571         main [1]
+[36]     0.0    0.00    0.00     571         Game::printPiecePreview() [36]
+                0.00    0.00     571/571         Piece::getPrintableWithWhitespace[abi:cxx11]() [37]
+-----------------------------------------------
+                0.00    0.00     571/571         Game::printPiecePreview() [36]
+[37]     0.0    0.00    0.00     571         Piece::getPrintableWithWhitespace[abi:cxx11]() [37]
+                0.00    0.00     571/2008091     Piece::getMatrix() [11]
+-----------------------------------------------
+                0.00    0.00  835236/835236      Game::tick(char) [3]
+[44]     0.0    0.00    0.00  835236         Game::toppedOut() [44]
+-----------------------------------------------
+                0.00    0.00      42/529516      getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00  529474/529516      Piece::Piece(int) [23]
+[45]     0.0    0.00    0.00  529516         Piece::getName() [45]
+-----------------------------------------------
+                0.00    0.00   56118/264744      Game::getNewPiece() [30]
+                0.00    0.00  208626/264744      Game::generatePiece() [28]
+[46]     0.0    0.00    0.00  264744         RNG::LFSR32::getRangedInt(int, int) [46]
+                0.00    0.00  264744/264744      RNG::LFSR32::nextState() [47]
+-----------------------------------------------
+                0.00    0.00  264744/264744      RNG::LFSR32::getRangedInt(int, int) [46]
+[47]     0.0    0.00    0.00  264744         RNG::LFSR32::nextState() [47]
+-----------------------------------------------
+                0.00    0.00       2/237924      main [1]
+                0.00    0.00     435/237924      void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [62]
+                0.00    0.00    1176/237924      getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00    3540/237924      generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+                0.00    0.00   96439/237924      searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.00    0.00  136332/237924      getBestMove[abi:cxx11](Game*, int) [2]
+[48]     0.0    0.00    0.00  237924         std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+-----------------------------------------------
+                0.00    0.00     435/225545      getBestMove[abi:cxx11](Game*, int) [2]
+                0.00    0.00     460/225545      Game::removeFilledLines() [9]
+                0.00    0.00  224650/225545      evaluateGame(Game*) [6]
+[49]     0.0    0.00    0.00  225545         void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [49]
+-----------------------------------------------
+                0.00    0.00      66/224538      getMaximumNTap(int, int) [34]
+                0.00    0.00  224472/224538      Board::addPieceToBoard(Piece*) [31]
+[50]     0.0    0.00    0.00  224538         Board::setMinoXY(int, int, int) [50]
+-----------------------------------------------
+                0.00    0.00  104300/208613      RNG::LFSR32::clone() [55]
+                0.00    0.00  104313/208613      Game::Game(int, int) [26]
+[51]     0.0    0.00    0.00  208613         RNG::LFSR32::LFSR32(unsigned int) [51]
+-----------------------------------------------
+                0.00    0.00  208613/208613      Board::Board() [24]
+[52]     0.0    0.00    0.00  208613         std::vector<int, std::allocator<int> >::_M_default_append(unsigned long) [52]
+-----------------------------------------------
+                0.00    0.00    1176/117736      searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.00    0.00  116560/117736      Piece::rotate(int) [54]
+[53]     0.0    0.00    0.00  117736         Piece::getRotationStates() [53]
+-----------------------------------------------
+                0.00    0.00  116560/116560      Game::tryRotation(int) [22]
+[54]     0.0    0.00    0.00  116560         Piece::rotate(int) [54]
+                0.00    0.00  116560/117736      Piece::getRotationStates() [53]
+-----------------------------------------------
+                0.00    0.00  104300/104300      Game::clone() [13]
+[55]     0.0    0.00    0.00  104300         RNG::LFSR32::clone() [55]
+                0.00    0.00  104300/208613      RNG::LFSR32::LFSR32(unsigned int) [51]
+-----------------------------------------------
+                0.00    0.00   44007/44007       searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+[56]     0.0    0.00    0.00   44007         isNewState(std::vector<Game*, std::allocator<Game*> >, Game*) [56]
+-----------------------------------------------
+                0.00    0.00    7080/7080        generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+[57]     0.0    0.00    0.00    7080         sign(int) [57]
+-----------------------------------------------
+                0.00    0.00      12/3540        Game::simulatePiece(std::vector<int, std::allocator<int> >) [35]
+                0.00    0.00    1176/3540        getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00    1176/3540        searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+                0.00    0.00    1176/3540        getBestMove[abi:cxx11](Game*, int) [2]
+[58]     0.0    0.00    0.00    3540         generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [58]
+                0.00    0.00    7080/7080        sign(int) [57]
+                0.00    0.00    3540/237924      std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+-----------------------------------------------
+                0.00    0.00     267/680         getBestMove[abi:cxx11](Game*, int) [2]
+                0.00    0.00     413/680         searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+[59]     0.0    0.00    0.00     680         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&) [59]
+-----------------------------------------------
+                0.00    0.00     267/680         getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+                0.00    0.00     413/680         searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [10]
+[60]     0.0    0.00    0.00     680         void std::vector<Game*, std::allocator<Game*> >::_M_realloc_insert<Game* const&>(__gnu_cxx::__normal_iterator<Game**, std::vector<Game*, std::allocator<Game*> > >, Game* const&) [60]
+-----------------------------------------------
+                0.00    0.00     460/460         Game::removeFilledLines() [9]
+[61]     0.0    0.00    0.00     460         Board::removeRow(int) [61]
+-----------------------------------------------
+                0.00    0.00     435/435         getBestMove[abi:cxx11](Game*, int) [2]
+[62]     0.0    0.00    0.00     435         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [62]
+                0.00    0.00     435/237924      std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [48]
+-----------------------------------------------
+                0.00    0.00     267/267         getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [21]
+[63]     0.0    0.00    0.00     267         void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> >&&) [63]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [56] isNewState(std::vector<Game*, std::allocator<Game*> >, Game*) [8] Game::tryPieceDrop() [24] Board::Board()
+   [2] getBestMove[abi:cxx11](Game*, int) [19] Game::tryXMovement(int) [12] Piece::getColorScheme()
+   [6] evaluateGame(Game*)    [28] Game::generatePiece()  [53] Piece::getRotationStates()
+  [29] isTetrisReady(Game*)    [4] Game::simulatePiece(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [37] Piece::getPrintableWithWhitespace[abi:cxx11]()
+  [34] getMaximumNTap(int, int) [35] Game::simulatePiece(std::vector<int, std::allocator<int> >) [27] Piece::clone()
+  [33] getScareHeight(int)    [18] Game::isGravityFrame() [54] Piece::rotate(int)
+  [21] getPossibleMoves(Game*, std::vector<Game*, std::allocator<Game*> >&) [36] Game::printPiecePreview() [45] Piece::getName()
+  [58] generateInputTimeline(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<int, std::allocator<int> >) [9] Game::removeFilledLines() [11] Piece::getMatrix()
+  [10] searchForTucksAndSpins[abi:cxx11](Game*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >, std::vector<Game*, std::allocator<Game*> >) [20] Game::handleMovementCharacter(char) [23] Piece::Piece(int)
+  [16] findEvaluationListIndex(std::vector<int, std::allocator<int> >, int) [5] Game::pieceCollidingWithBoard() [62] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [25] getFramesUntilPieceDrop(int) [3] Game::tick(char)  [59] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+  [57] sign(int)              [13] Game::clone()          [60] void std::vector<Game*, std::allocator<Game*> >::_M_realloc_insert<Game* const&>(__gnu_cxx::__normal_iterator<Game**, std::vector<Game*, std::allocator<Game*> > >, Game* const&)
+  [46] RNG::LFSR32::getRangedInt(int, int) [44] Game::toppedOut() [63] void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> >&&)
+  [55] RNG::LFSR32::clone()   [26] Game::Game(int, int)   [52] std::vector<int, std::allocator<int> >::_M_default_append(unsigned long)
+  [47] RNG::LFSR32::nextState() [31] Board::addPieceToBoard(Piece*) [49] void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)
+  [51] RNG::LFSR32::LFSR32(unsigned int) [14] Board::clone() [15] void std::vector<int, std::allocator<int> >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&)
+  [32] Game::printBoard()      [7] Board::getMinoXY(int, int) [48] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+  [30] Game::getNewPiece()    [61] Board::removeRow(int)  [17] _init
+  [22] Game::tryRotation(int) [50] Board::setMinoXY(int, int, int)

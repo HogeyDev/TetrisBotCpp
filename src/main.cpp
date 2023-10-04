@@ -15,21 +15,26 @@ int main() {
     Game* game = new Game(startingLevel);
     int oldPieceTotal = -1;
 
+	// game->board->setMinoXY(1, 0, 19);
+	// game->board->setMinoXY(1, 0, 18);
+	// game->board->setMinoXY(1, 0, 17);
+	// game->board->setMinoXY(1, 1, 19);
+	// game->board->setMinoXY(1, 1, 17);
+	// game->board->setMinoXY(1, 2, 19);
+	// game->board->setMinoXY(1, 2, 17);
+	// game->activePiece = new Piece(1);
+
     std::string inputTimeline = "";
     unsigned int i = -1;
-
-    // std::vector<Move> moveList = getPossibleMoves(game);
-    // std::vector<std::string> tucks = searchForTucksAndSpins(game, moveList);
-    // for (std::string tuck : tucks) {
-    //   std::cout << tuck << std::endl;
-    // }
-    // exit(0);
 
     while (true) {
         if (oldPieceTotal != game->totalPieces) {
             inputTimeline = getBestMove(game, globalSearchDepth);
             i = 0;
             oldPieceTotal = game->totalPieces;
+
+			// std::cout << inputTimeline << std::endl;
+			// exit(1);
         }
 
         char movementCharacter = '.';
@@ -42,15 +47,15 @@ int main() {
         (void)result;
         game->printPiecePreview();
         game->printBoard();
-        std::cout << game->isOver << std::endl;
-        std::cout << inputTimeline << std::endl;
-        std::cout << evaluateGame(game) << std::endl;
-        std::cout << getScareHeight(game->level) << std::endl;
-		std::cout << isTetrisReady(game) << std::endl;
+  //       std::cout << game->isOver << std::endl;
+  //       std::cout << inputTimeline << std::endl;
+  //       std::cout << evaluateGame(game) << std::endl;
+  //       std::cout << getScareHeight(game->level) << std::endl;
+		// std::cout << isTetrisReady(game) << std::endl;
 
         if (game->isOver) {
             std::cout << "GAME OVER!" << std::endl;
-            exit(1);
+            exit(0);
         }
 
         std::cout << "FRAME RENDERED: " << frameMillis << std::endl;
