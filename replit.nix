@@ -1,6 +1,8 @@
 { pkgs }: {
 	deps = [
-		pkgs.gcc
+		pkgs.bear
+  pkgs.gh
+  pkgs.gcc
 		pkgs.clang_12
 		pkgs.ccls
 		# pkgs.clangd
