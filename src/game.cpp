@@ -62,8 +62,8 @@ void Game::printBoard() {
     std::cout << "Score: " << this->score << std::endl;
 }
 
-Game* Game::clone() {
-    Game* copy = new Game();
+Game *Game::clone() {
+    Game *copy = new Game();
     copy->level = this->level;
     copy->score = this->score;
     copy->lines = this->lines;
@@ -80,14 +80,14 @@ Game* Game::clone() {
     return copy;
 }
 
-Piece* Game::getNewPiece() {
+Piece *Game::getNewPiece() {
     this->totalPieces++;
     this->activePiece = this->previewPiece->clone();
     return (this->previewPiece =
                 new Piece(this->internalRng->getRangedInt(0, 6)));
 }
 
-Piece* Game::generatePiece() {
+Piece *Game::generatePiece() {
     this->totalPieces++;
     return new Piece(this->internalRng->getRangedInt(0, 6));
 }
@@ -180,20 +180,20 @@ bool Game::handleMovementCharacter(char movementCharacter) {
         value &= this->tryRotation(-1);
         break;
     case 'E':
-        value &= this->tryXMovement(-1);
         value &= this->tryRotation(1);
+        value &= this->tryXMovement(-1);
         break;
     case 'F':
-        value &= this->tryXMovement(-1);
         value &= this->tryRotation(-1);
+        value &= this->tryXMovement(-1);
         break;
     case 'I':
-        value &= this->tryXMovement(1);
         value &= this->tryRotation(1);
+        value &= this->tryXMovement(1);
         break;
     case 'G':
-        value &= this->tryXMovement(1);
         value &= this->tryRotation(-1);
+        value &= this->tryXMovement(1);
         break;
     case '.':
         break;
