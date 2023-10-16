@@ -19,7 +19,7 @@ public:
   Piece *previewPiece;
   RNG::LFSR32 *internalRng;
 
-  Game(int startingLevel = 18, int seed = 0);
+  Game(int startingLevel = 18, int seed = -1);
 
   void printPiecePreview();
   void printBoard();

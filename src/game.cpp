@@ -8,7 +8,8 @@
 
 Game::Game(int startingLevel, int seed) {
     this->seed = seed;
-    this->internalRng = new RNG::LFSR32();
+    if (seed == -1) this->internalRng = new RNG::LFSR32();
+    else this->internalRng = new RNG::LFSR32(seed);
     this->level = startingLevel;
     this->lines = 0;
     this->score = 0;
@@ -157,6 +158,7 @@ void Game::removeFilledLines() {
         }
     }
     this->lines += rowsFilled.size();
+    this->score += lineClearValues[rowsFilled.size()];
     for (unsigned int i = 0; i < rowsFilled.size(); i++) {
         this->board->removeRow(rowsFilled[i]);
     }

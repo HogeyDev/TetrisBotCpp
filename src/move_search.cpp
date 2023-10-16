@@ -94,6 +94,8 @@ getPossibleMovesUntilLock(Game *currentGame,
                     inputTimeline += '.';
                 }
                 gameCopy->tick('.');
+                if (gameCopy->isOver)
+                    break;
             }
         }
     }
@@ -113,10 +115,10 @@ std::string getBestMove(Game *currentGame, int searchDepth) {
     std::vector<std::string> timelineList = {};
     std::vector<int> evaluationList = {};
 
-    for (Move move : generatedMoveList) {
-        unsortedTimelineList.push_back(
-            generateInputTimeline(tapTimeline, move));
-    }
+    // for (Move move : generatedMoveList) {
+    //     unsortedTimelineList.push_back(
+    //         generateInputTimeline(tapTimeline, move));
+    // }
     unsortedTimelineList.insert(unsortedTimelineList.end(),
                                 spinsAndTucks.begin(), spinsAndTucks.end());
 
@@ -146,7 +148,9 @@ std::string getBestMove(Game *currentGame, int searchDepth) {
                               currentEvaluation);
     }
 
-    return timelineList[0];
+    if (timelineList.size() > 0)
+        return timelineList[0];
+    return "";
 }
 
 int findEvaluationListIndex(std::vector<int> evaluations,
