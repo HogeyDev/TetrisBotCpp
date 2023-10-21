@@ -8,8 +8,10 @@
 
 Game::Game(int startingLevel, int seed) {
     this->seed = seed;
-    if (seed == -1) this->internalRng = new RNG::LFSR32();
-    else this->internalRng = new RNG::LFSR32(seed);
+    if (seed == -1)
+        this->internalRng = new RNG::LFSR32();
+    else
+        this->internalRng = new RNG::LFSR32(seed);
     this->level = startingLevel;
     this->lines = 0;
     this->score = 0;
@@ -63,8 +65,8 @@ void Game::printBoard() {
     std::cout << "Score: " << this->score << std::endl;
 }
 
-Game *Game::clone() {
-    Game *copy = new Game();
+Game* Game::clone() {
+    Game* copy = new Game();
     copy->level = this->level;
     copy->score = this->score;
     copy->lines = this->lines;
@@ -81,14 +83,14 @@ Game *Game::clone() {
     return copy;
 }
 
-Piece *Game::getNewPiece() {
+Piece* Game::getNewPiece() {
     this->totalPieces++;
     this->activePiece = this->previewPiece->clone();
     return (this->previewPiece =
                 new Piece(this->internalRng->getRangedInt(0, 6)));
 }
 
-Piece *Game::generatePiece() {
+Piece* Game::generatePiece() {
     this->totalPieces++;
     return new Piece(this->internalRng->getRangedInt(0, 6));
 }

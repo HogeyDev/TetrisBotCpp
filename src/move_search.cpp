@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-std::vector<Move> getPossibleMoves(Game *currentGame) {
+std::vector<Move> getPossibleMoves(Game* currentGame) {
     std::vector<Move> moveList = {};
 
     char pieceName = currentGame->activePiece->getName();
@@ -33,7 +33,7 @@ std::vector<Move> getPossibleMoves(Game *currentGame) {
             // std::cout << "TIMELINE: " << inputTimeline << std::endl;
             // exit(1);
 
-            Game *gameCopy = currentGame->clone();
+            Game* gameCopy = currentGame->clone();
             for (unsigned int i = 0; i < inputTimeline.size(); i++) {
                 gameCopy->tick(inputTimeline.at(i));
             }
@@ -42,8 +42,8 @@ std::vector<Move> getPossibleMoves(Game *currentGame) {
     return moveList;
 }
 std::vector<Move>
-getPossibleMovesUntilLock(Game *currentGame,
-                          std::vector<SearchState *> &potentialTuckSpinStates) {
+getPossibleMovesUntilLock(Game* currentGame,
+                          std::vector<SearchState*>& potentialTuckSpinStates) {
     std::vector<Move> moveList = {};
 
     char pieceName = currentGame->activePiece->getName();
@@ -66,7 +66,7 @@ getPossibleMovesUntilLock(Game *currentGame,
             // std::cout << "TIMELINE: " << inputTimeline << std::endl;
             // exit(1);
 
-            Game *gameCopy = currentGame->clone();
+            Game* gameCopy = currentGame->clone();
             int pieceCount = gameCopy->totalPieces;
             bool pieceLocked = false;
             for (unsigned int i = 0; i < inputTimeline.size(); i++) {
@@ -102,11 +102,11 @@ getPossibleMovesUntilLock(Game *currentGame,
     return moveList;
 }
 
-std::string getBestMove(Game *currentGame) {
+std::string getBestMove(Game* currentGame) {
     return getBestMove(currentGame, globalSearchDepth);
 }
-std::string getBestMove(Game *currentGame, int searchDepth) {
-    std::vector<SearchState *> potentialTuckSpinStates;
+std::string getBestMove(Game* currentGame, int searchDepth) {
+    std::vector<SearchState*> potentialTuckSpinStates;
     std::vector<Move> generatedMoveList =
         getPossibleMovesUntilLock(currentGame, potentialTuckSpinStates);
     std::vector<std::string> spinsAndTucks =
@@ -127,7 +127,7 @@ std::string getBestMove(Game *currentGame, int searchDepth) {
 
     for (std::string timeline : unsortedTimelineList) {
         // std::cout << "Searching Timeline: " << timeline << std::endl;
-        Game *gameCopy = currentGame->clone();
+        Game* gameCopy = currentGame->clone();
 
         gameCopy->simulatePiece(timeline);
 
@@ -181,7 +181,7 @@ int findEvaluationListIndex(std::vector<int> evaluations,
 //     return moveList;
 // }
 
-int evaluateGame(Game *game) {
+int evaluateGame(Game* game) {
     // lower is better
     int total = 0;
     int isOver = 0;
@@ -350,13 +350,13 @@ const static std::string spinInputs[] = {"", "", "A", "", "AB"};
 const static std::string tuckSpinInputs[] = {"", "", "EI", "", "EFIG"};
 
 std::vector<std::string>
-searchForTucksAndSpins(Game *game,
-                       std::vector<SearchState *> &potentialTuckSpinStates) {
+searchForTucksAndSpins(Game* game,
+                       std::vector<SearchState*>& potentialTuckSpinStates) {
     std::vector<std::string> newInputTimelines;
-    std::vector<Game *> allSeenGameStates;
+    std::vector<Game*> allSeenGameStates;
 
     for (unsigned int i = 0; i < potentialTuckSpinStates.size(); i++) {
-        SearchState *state = potentialTuckSpinStates.at(i);
+        SearchState* state = potentialTuckSpinStates.at(i);
 
         int numberOfRotations = state->game->activePiece->getRotationStates();
 
@@ -367,7 +367,7 @@ searchForTucksAndSpins(Game *game,
         for (unsigned int i = 0; i < fullInputsList.size(); i++) {
             char input = fullInputsList.at(i);
 
-            Game *gameCopy = state->game->clone();
+            Game* gameCopy = state->game->clone();
             if (gameCopy->tick(input)) {
                 newInputTimelines.push_back(state->inputTimeline + input);
             }
@@ -426,11 +426,11 @@ searchForTucksAndSpins(Game *game,
     return newInputTimelines;
 }
 
-bool isNewState(std::vector<Game *> searchedStates, Game *currentState) {
+bool isNewState(std::vector<Game*> searchedStates, Game* currentState) {
     if (searchedStates.size() == 0)
         return true;
     for (unsigned int i = 0; i < searchedStates.size(); i++) {
-        Game *state = searchedStates.at(i);
+        Game* state = searchedStates.at(i);
         if (state->activePiece->y != currentState->activePiece->y)
             return true;
         if (state->activePiece->x != currentState->activePiece->y)
@@ -439,7 +439,7 @@ bool isNewState(std::vector<Game *> searchedStates, Game *currentState) {
     return false;
 }
 
-bool isTetrisReady(Game *game) {
+bool isTetrisReady(Game* game) {
     int wellEnd = 20;
     for (int y = 0; y < 20; y++) {
         if (game->board->getMinoXY(wellColumn, y)) {
